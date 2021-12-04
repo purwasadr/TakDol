@@ -5,7 +5,7 @@
     <div class="col-lg-7 mb-3">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search..." name="search">
-            <button class="btn btn-outline-primary" type="submit">Search</button>
+            <button class="btn btn-primary" type="submit">Search</button>
         </div>
     </div>
 </div>
