@@ -31,20 +31,6 @@
                     <a class="nav-link disabled">Disabled</a>
                 </li>
             </ul>
-
-            <form class="d-flex">
-                {{-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button> --}}
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." name="search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </div>
-            </form>
-            {{-- <div class=" ms-3 mt-3 mb-3">
-                <a class="btn btn-primary ms-3" aria-current="page" href="/">Login</a>
-                <a class="btn btn-primary ms-2" aria-current="page" href="/">Register</a>
-            </div> --}}
-
             <ul class="navbar-nav">
                 <li class="nav-item mt-2 mt-lg-0 lg">
                     <a class="btn btn-primary ms-lg-3" aria-current="page" href="/">Login</a>
