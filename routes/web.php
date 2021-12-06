@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MyProductController;
 use App\Http\Controllers\SignUpController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -37,8 +38,4 @@ Route::get('/create', function () {
     ]);
 });
 
-Route::get('/seller', function () {
-    return view('seller.layouts.main', [
-        'title' => 'Seller Home',
-    ]);
-});
+Route::resource('/seller/myproducts', MyProductController::class);
