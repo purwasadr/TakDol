@@ -46,14 +46,14 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="body" class="form-label">Body</label>
-            @error('body')
+            <label for="description" class="form-label">Description</label>
+            @error('description')
             <p class="text-danger">{{ $message }}</p>
             @enderror
-            <input id="body" type="hidden" name="body" value="{{ old('body') }}">
-            <trix-editor input="body"></trix-editor>
+            <textarea class="form-control" id="description" name="description" rows="3"
+                value="{{ old('description') }}"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
+        <button type=" submit" class="btn btn-primary">Create Post</button>
     </form>
 </div>
 @endsection
