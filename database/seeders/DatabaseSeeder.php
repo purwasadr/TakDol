@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Sepatu',
             'price' => '400000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
-            'image' => '/img_products/dummy-shoes.jpg',
+            'image' => 'img_products/dummy-shoes.jpg',
             'user_id' => 1
         ]);
 
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Iphone 11',
             'price' => '24000000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
-            'image' => '/img_products/dummy-iphone-11.jpg',
+            'image' => 'img_products/dummy-iphone-11.jpg',
             'user_id' => 1
         ]);
 
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Intel i5',
             'price' => '11400000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
-            'image' => '/img_products/dummy-intel-i5.jpg',
+            'image' => 'img_products/dummy-intel-i5.jpg',
             'user_id' => 1
         ]);
 
