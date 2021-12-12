@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyProductController;
-use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -24,11 +24,18 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/show/{products:slug}', function (Product $product) {
+    return view('home', [
+        'title' => 'Home',
+        'product' => $product
+    ]);
+});
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/signup', [SignUpController::class, 'index']);
-Route::post('/signup', [SignUpController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -38,4 +45,5 @@ Route::get('/create', function () {
     ]);
 });
 
-Route::resource('/seller/myproducts', MyProductController::class);
+Route::get('/seller/myproducts/checkSlug', [MyProductController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/seller/myproducts', MyProductController::class)->middleware('auth');
