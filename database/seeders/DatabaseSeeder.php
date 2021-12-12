@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'title' => 'Sepatu',
+            'slug' => 'sepatu',
             'price' => '400000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
             'image' => 'img_products/dummy-shoes.jpg',
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'title' => 'Iphone 11',
+            'slug' => 'Iphone-11',
             'price' => '24000000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
             'image' => 'img_products/dummy-iphone-11.jpg',
@@ -34,6 +36,7 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'title' => 'Intel i5',
+            'slug' => 'intel-i5',
             'price' => '11400000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
             'image' => 'img_products/dummy-intel-i5.jpg',
