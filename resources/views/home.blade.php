@@ -32,7 +32,7 @@
     <div class="col-md-2 mb-3">
         <div class="card h-100">
             <div class="ratio ratio-1x1">
-                <img src="{{ asset('storage' . $product->image) }}" class="card-img-top rat" style="object-fit: cover;"
+                <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top rat" style="object-fit: cover;"
                     alt="{{ $product->image }}">
             </div>
             <div class="card-body">
