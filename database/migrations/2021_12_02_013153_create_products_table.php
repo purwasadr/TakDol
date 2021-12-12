@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('title');
+            $table->string('slug')->unique();
             $table->integer('price');
             $table->text('description');
             $table->string('image')->nullable();
