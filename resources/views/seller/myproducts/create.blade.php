@@ -18,6 +18,16 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="slug" class="form-label">Slug</label>
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="slug" name="slug" required
+                autofocus value="{{ old('slug') }}">
+            @error('slug')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="mb-3">
             <label for="price" class="form-label">Price</label>
             <input type="number" class="form-control @error('title') is-invalid @enderror" id="price" name="price"
                 required autofocus value="{{ old('price') }}">
@@ -26,6 +36,19 @@
                 {{ $message }}
             </div>
             @enderror
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" name="category_id">
+                @foreach ($categories as $category)
+                @if (old('category_id') == $category->id)
+                <option value={{ $category->id }} selected>{{ $category->name }}</option>
+                @else
+                <option value={{ $category->id }}>{{ $category->name }}</option>
+                @endif
+
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Product Image</label>
@@ -49,4 +72,5 @@
         <button type="submit" class="btn btn-primary">Create Post</button>
     </form>
 </div>
+<script src="/js/seller.js"></script>
 @endsection
