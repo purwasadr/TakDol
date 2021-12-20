@@ -26,9 +26,8 @@
         <div class="row">
             @include('seller.layouts.sidebar')
 
-            <div class="col-lg-10 ms-sm-auto">
+            <div class="col-lg-10 ms-lg-auto">
                 @yield('container')
-                <h1>SISI</h1>
             </div>
         </div>
     </div>
