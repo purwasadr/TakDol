@@ -12,33 +12,37 @@
 <div class="row justify-content-center">
     <div class="col-md-4 mb-4">
         <ul class="nav nav-pills">
+            @if (!request('category'))
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">All</a>
             </li>
+            @endif
+            @foreach ($categories as $category)
+            @if (!request('category'))
             <li class="nav-item">
-                <a class="nav-link" href="#">Gadget</a>
+                <a class="nav-link" aria-current="page" href="#">{{ $category->name }}</a>
             </li>
+            @else
             <li class="nav-item">
-                <a class="nav-link" href="#">Sport</a>
+                <a class="nav-link active" aria-current="page" href="#">{{ $category->name }}</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Fashion</a>
-            </li>
+            @endif
+            @endforeach
         </ul>
     </div>
 </div>
 <div class="row">
     @foreach ($products as $product)
     <div class="col-md-2 mb-3">
-        <div class="card h-100">
+        <div class="card">
             <div class="ratio ratio-1x1">
-                <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top rat" style="object-fit: cover;"
+                <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" style="object-fit: cover;"
                     alt="{{ $product->image }}">
             </div>
             <div class="card-body">
                 <small class="card-title">{{ $product->title }}</small>
-                <h6 class="mb-0">Rp. {{ $product->price }}</h6>
-                <a href="#" class="stretched-link"></a>
+                <h6 class="mb-0">Rp. {{number_format($product->price, 0, ",", ".")}}</h6>
+                <a href="/show/{{ $product->slug }}" class="stretched-link"></a>
             </div>
         </div>
     </div>
