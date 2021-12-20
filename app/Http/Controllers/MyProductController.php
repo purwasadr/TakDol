@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class MyProductController extends Controller
 {
@@ -28,7 +30,8 @@ class MyProductController extends Controller
     public function create()
     {
         return view('seller.myproducts.create', [
-            'title' => 'Seller'
+            'title' => 'Seller',
+            'categories' => Category::all()
         ]);
     }
 
@@ -42,20 +45,22 @@ class MyProductController extends Controller
     {
         $validateData = $request->validate([
             'title' => 'required|max:255',
+            'slug' => 'required|unique:products',
+            'category_id' => 'required',
             'price' => 'required',
             'image' => 'image|file|max:1024',
             'description' => 'required'
         ]);
 
         if ($request->file('image')) {
-            $validateData['image'] = $request->file('image')->store('post-images');
+            $validateData['image'] = $request->file('image')->store('img_products');
         }
 
         $validateData['user_id'] = auth()->user()->id;
 
         Product::create($validateData);
 
-        return redirect('/dashboard/posts')->with('success', "New post has been added!");
+        return redirect('/seller/myproducts')->with('success', "New post has been added!");
     }
 
     /**
@@ -101,5 +106,12 @@ class MyProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        // SlugService juga sudah mengecek keunikan slug
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }
