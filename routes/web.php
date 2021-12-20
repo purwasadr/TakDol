@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyProductController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -20,13 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home', [
         'title' => 'Home',
-        'products' => Product::all()
+        'products' => Product::all(),
+        'categories' => Category::all()
     ]);
 });
 
-Route::get('/show/{products:slug}', function (Product $product) {
-    return view('home', [
-        'title' => 'Home',
+Route::get('/show/{product:slug}', function (Product $product) {
+    return view('show', [
+        'title' => $product->title,
         'product' => $product
     ]);
 });
