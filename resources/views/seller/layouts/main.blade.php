@@ -13,8 +13,8 @@
     {{-- Bootstrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 
-    {{-- My Style --}}
-    <link rel="stylesheet" href="/css/style.css">
+    {{-- Seller Style --}}
+    <link rel="stylesheet" href="/css/seller.css">
 
     <title>{{ $title }}</title>
 </head>
@@ -26,7 +26,7 @@
         <div class="row">
             @include('seller.layouts.sidebar')
 
-            <div class="col-lg-10 ms-lg-auto">
+            <div class="col-lg-10 ms-lg-auto mx-2">
                 @yield('container')
             </div>
         </div>
