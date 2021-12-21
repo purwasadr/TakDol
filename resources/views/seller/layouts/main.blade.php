@@ -22,11 +22,11 @@
 <body style="height: 2500rem">
     @include('seller.layouts.navbar')
 
-    <div class="container-fluid ps-0">
+    <div class="container-fluid">
         <div class="row">
             @include('seller.layouts.sidebar')
 
-            <div class="col-lg-10 ms-lg-auto mx-2">
+            <div class="col-lg-10 ms-lg-auto">
                 @yield('container')
             </div>
         </div>
