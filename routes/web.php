@@ -26,7 +26,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/show/{product:slug}', function (Product $product) {
+Route::get('/show/{product}', function (Product $product) {
     return view('show', [
         'title' => $product->title,
         'product' => $product
