@@ -69,20 +69,28 @@ class MyProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $myproduct)
     {
-        //
+        return view('show', [
+            'title' => $myproduct->title,
+            'product' => $myproduct
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * 
+     * @param  \App\Models\Product  $myproduct *Harus sama dengan lastpath route jika menggunakan Route::resource
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $myproduct)
     {
-        //
+        return view('seller.myproducts.edit', [
+            'title' => "Edit Product",
+            'product' => $myproduct,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
