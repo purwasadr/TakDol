@@ -12,6 +12,18 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
+    protected $with = ['category'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function sluggable(): array
     {
         return [
