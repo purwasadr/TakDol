@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class MyProductController extends Controller
 {
@@ -43,6 +44,7 @@ class MyProductController extends Controller
      */
     public function store(Request $request)
     {
+        // rules uinque:{tabel} diisi dengan nama tabel bukan model
         $validateData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:products',
@@ -100,9 +102,34 @@ class MyProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $myproduct)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'category_id' => 'required',
+            'price' => 'required',
+            'image' => 'image|file|max:1024',
+            'description' => 'required'
+        ];
+
+        if ($request->slug != $myproduct->slug) {
+            $rules['slug'] = 'required|unique:products';
+        }
+
+        $validateData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('myproduct-images');
+        }
+
+        $validateData['user_id'] = auth()->user()->id;
+
+        Product::where('id', $myproduct->id)->update($validateData);
+
+        return redirect('/seller/myproducts')->with('success', "myproduct has been updated!");
     }
 
     /**
