@@ -11,37 +11,41 @@
 </div>
 @endif
 
-<div class="table-responsive col-lg-8">
-    <a href="/seller/myproducts/create" class="btn btn-primary mb-3">Add new product</a>
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Category</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($products as $product)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>{{ $product->title }}</td>
-                <td>sss</td>
-                <td>
-                    <a href="/dashboard/products/{{ $product->slug }}" class="badge bg-info"><span
-                            data-feather="eye"></span></a>
-                    <a href="/dashboard/products/{{ $product->slug }}/edit" class="badge bg-warning"><span
-                            data-feather="edit"></span></a>
-                    <form action="/dashboard/products/{{ $product->slug }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span
-                                data-feather="x-circle"></span></button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    @endsection
+<div class="row">
+    <div class="col-1">
+        #
+    </div>
+    <div class="col-5">
+        Title
+    </div>
+    <div class="col-2">
+        Category
+    </div>
+</div>
+@foreach ($products as $product)
+<div class="row align-items-center py-2 position-relative item-hover">
+    <a class="position-absolute h-100 col-12" href="/show"></a>
+    <div class="col-1">
+        {{ $loop->iteration }}
+    </div>
+    <div class="col-5">
+        {{ $product->title }}
+    </div>
+    <div class="col-2 prewrap">
+        {{ $product->category->name }}
+    </div>
+    <div class="col-3">
+        <div class="dropdown">
+            <button class="btn bi bi-three-dots-vertical" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="/seller/myproducts/{{ $product->slug }}/edit">Edit</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Delete</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+@endforeach
+@endsection
