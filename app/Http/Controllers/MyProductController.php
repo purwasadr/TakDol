@@ -73,7 +73,7 @@ class MyProductController extends Controller
      */
     public function show(Product $myproduct)
     {
-        return view('show', [
+        return view('seller.myproducts.show', [
             'title' => $myproduct->title,
             'product' => $myproduct
         ]);
@@ -138,9 +138,15 @@ class MyProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $myproduct)
     {
-        //
+        if ($myproduct->image) {
+            Storage::delete($myproduct->image);
+        }
+
+        Product::destroy($myproduct->id);
+
+        return redirect('/seller/myproducts')->with('success', "Product has been deleted!");
     }
 
     public function checkSlug(Request $request)
