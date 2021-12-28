@@ -40,10 +40,13 @@
                     alt="{{ $product->image }}">
             </div>
             <div class="card-body">
-                <small class="card-title">{{ $product->title }}</small>
+                <p class="card-title small"
+                    style="line-height: 1.45;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                    {{ $product->title }}</p>
                 <h6 class="mb-0">Rp. {{number_format($product->price, 0, ",", ".")}}</h6>
                 <a href="/show/{{ $product->slug }}" class="stretched-link"></a>
             </div>
+
         </div>
     </div>
     @endforeach
