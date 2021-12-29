@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(5)->create();
+
+        User::create([
+            'name' => 'Arturia Pendragon',
+            'username' => 'arturia_pendragon',
+            'email' => 'arturiapendragon@gmail.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+        ]);
+
+        User::create([
+            'name' => 'Arthur Kingsley',
+            'username' => 'artur_kingsley',
+            'email' => 'arturkingsley@gmail.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+        ]);
 
         Category::create([
             'name' => 'Shoes',
