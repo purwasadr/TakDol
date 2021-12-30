@@ -1,11 +1,16 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">TakDol</a>
+        <a class="navbar-brand" href="/seller">TakDol <small class="text-muted">Seller</small></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/seller/myproducts">Home</a>
+                </li>
+            </ul>
             @auth
             <div class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
