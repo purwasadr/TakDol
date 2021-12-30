@@ -11,16 +11,21 @@
                     <a class="nav-link" aria-current="page" href="/seller/myproducts">Mulai Jual</a>
                 </li>
             </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart"><i class="bi bi-cart2"></i></a>
+                </li>
+            </ul>
             @auth
             <div class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Welcome back, {{ auth()->user()->name }}
+                        data-bs-toggle="dropdown" aria-expanded="false"> {{ auth()->user()->name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i>
-                                Profile</a></li>
+                        <li><a class="dropdown-item" href="/myaccount/profile"><i
+                                    class="bi bi-layout-text-sidebar-reverse"></i>
+                                My Account</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -40,7 +45,7 @@
                     <a class="btn btn-primary ms-lg-3" aria-current="page" href="/login">Login</a>
                 </li>
                 <li class="nav-item mt-2 mt-lg-0">
-                    <a class="btn btn-primary ms-lg-2" aria-current="page" href="/signup">SignUp</a>
+                    <a class="btn btn-primary ms-lg-2" aria-current="page" href="/register">SignUp</a>
                 </li>
             </ul>
             @endauth
