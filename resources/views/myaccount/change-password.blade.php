@@ -4,8 +4,14 @@
 
 
 @if (session()->has('success'))
-<div class="alert alert-success" role="alert">
+<div class="alert alert-success col-md-9" role="alert">
     {{ session('success') }}
+</div>
+@endif
+
+@if (session()->has('error'))
+<div class="alert alert-danger col-md-9" role="alert">
+    {{ session('error') }}
 </div>
 @endif
 
@@ -43,7 +49,10 @@
             </div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Change Password</button>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Change Password</button>
+        </div>
+
     </form>
 </div>
 @endsection
