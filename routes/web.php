@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MyProductController;
+use App\Http\Controllers\seller\MyProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\seller\MyOrderController;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +37,7 @@ Route::get('/show/{product}', function (Product $product) {
         'product' => $product
     ]);
 });
+Route::post('/show/{product}/checkout', [HomeController::class, 'addToCart'])->middleware('auth');;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -49,3 +55,14 @@ Route::get('/create', function () {
 
 Route::get('/seller/myproducts/checkSlug', [MyProductController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/seller/myproducts', MyProductController::class)->middleware('auth');
+
+Route::get('/myaccount/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::put('/myaccount/profile', [ProfileController::class, 'update'])->middleware('auth');
+
+Route::get('/myaccount/change-password', [ChangePasswordController::class, 'index'])->middleware('auth');
+Route::put('/myaccount/change-password', [ChangePasswordController::class, 'update'])->middleware('auth');
+
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth');;
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth');;
+
+Route::get('/seller/myorders', [MyOrderController::class, 'index'])->middleware('auth');;
