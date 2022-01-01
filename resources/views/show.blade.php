@@ -13,11 +13,15 @@
         <h3 class="mt-2">Rp. {{ number_format($product->price, 0, ",", ".") }}</h3>
 
         <div class="mt-2 d-inline-block mb-2">
-            <a class="btn btn-outline-primary mt-2" href="/buy">Tambahkan ke keranjang</a>
+            <form action="/show/{{ $product->slug }}/checkout" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-outline-primary mt-2">Tambahkan ke keranjang</button>
+            </form>
+            {{-- <a class="btn btn-outline-primary mt-2" href="/cart">Tambahkan ke keranjang</a> --}}
             <a class="btn btn-primary mt-2" href="/buy">Beli Sekarang</a>
         </div>
     </div>
 </div>
-<h6 class="mt-5">Description</h6>
+<h5 class="mt-5">Description</h5>
 <p style="white-space: pre-line">{{ $product->description }}</p>
 @endsection
