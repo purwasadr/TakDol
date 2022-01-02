@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Arturia Pendragon',
             'username' => 'arturia_pendragon',
+            'store_name' => 'Pedang Jaya',
             'email' => 'arturiapendragon@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
         ]);
@@ -28,7 +29,8 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Arthur Kingsley',
             'username' => 'artur_kingsley',
-            'email' => 'arturkingsley@gmail.com',
+            'store_name' => 'Kreasi Armor',
+            'email' => 'arthurkingsley@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
         ]);
 
@@ -64,7 +66,7 @@ class DatabaseSeeder extends Seeder
             'price' => '24000000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
             'image' => 'img_products/dummy-iphone-11.jpg',
-            'user_id' => 1,
+            'user_id' => 6,
             'category_id' => 2
         ]);
 
@@ -74,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'price' => '11400000',
             'description' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos nemo aut perspiciatis ad repellat tempora nisi doloremque veniam minus, nam consectetur quam magni illum. Ullam quod dolorum nesciunt culpa cum?',
             'image' => 'img_products/dummy-intel-i5.jpg',
-            'user_id' => 1,
+            'user_id' => 6,
             'category_id' => 2
         ]);
 
