@@ -38,6 +38,7 @@ Route::get('/show/{product}', function (Product $product) {
     ]);
 });
 Route::post('/show/{product}/checkout', [HomeController::class, 'addToCart'])->middleware('auth');;
+Route::post('/show/{product}/buy-now', [HomeController::class, 'buyNow'])->middleware('auth');;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
