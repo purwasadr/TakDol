@@ -18,4 +18,14 @@ class HomeController extends Controller
 
         return redirect('/show/' . $product->slug);
     }
+
+    public function buyNow(Product $product)
+    {
+        Cart::create([
+            'user_id' => Auth::user()->id,
+            'product_id' => $product->id
+        ]);
+
+        return redirect('/cart');
+    }
 }
