@@ -24,7 +24,9 @@ class CartController extends Controller
         foreach ($request->cart_check as $product_id) {
             array_push($data, [
                 'user_id' => Auth::user()->id,
-                'product_id' => $product_id
+                'product_id' => $product_id,
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
         }
 
