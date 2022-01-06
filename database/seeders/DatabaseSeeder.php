@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -78,6 +79,18 @@ class DatabaseSeeder extends Seeder
             'image' => 'img_products/dummy-intel-i5.jpg',
             'user_id' => 6,
             'category_id' => 2
+        ]);
+
+        OrderStatus::create([
+            'name' => 'Wait'
+        ]);
+
+        OrderStatus::create([
+            'name' => 'Process'
+        ]);
+
+        OrderStatus::create([
+            'name' => 'On Ship'
         ]);
 
         // Product::factory(15)->create();
