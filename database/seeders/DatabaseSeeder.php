@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Arturia Pendragon',
             'username' => 'arturia_pendragon',
-            'store_name' => 'Pedang Jaya',
+            'store_name' => 'Aneka Barang',
             'email' => 'arturiapendragon@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
         ]);
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Arthur Kingsley',
             'username' => 'artur_kingsley',
-            'store_name' => 'Kreasi Armor',
+            'store_name' => 'Slamet',
             'email' => 'arthurkingsley@gmail.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
         ]);
