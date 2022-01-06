@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('product_id');
+            $table->foreignId('order_status_id')->default(1);
             $table->timestamps();
         });
     }
