@@ -21,21 +21,21 @@ class ChangePasswordController extends Controller
     {
         $validateData = $request->validate([
             'old_password' => 'required',
-            'new_password' => 'required',
-            'confirm_password' => 'required'
+            'new_password' => 'required|min:5',
+            'confirm_password' => 'required|min:5'
         ]);
 
         $savedPassword = Auth::user()->password;
         $requestPassword = $request->old_password;
 
         if (!Hash::check($requestPassword, $savedPassword)) {
-            dd('wrong_old : ' . $savedPassword . " Dan " . $requestPassword);
-            return back()->with('wrong_password', "Wrong old password!");
+            // dd('wrong_old : ' . $savedPassword . " Dan " . $requestPassword);
+            return back()->with('error', "Wrong old password!");
         }
 
         if ($request->new_password !== $request->confirm_password) {
-            dd('wrong_confim');
-            return back()->with('wrong_confirm_password', "New Password and confirm password must same!");
+            // dd('wrong_confim');
+            return back()->with('error', "New Password and confirm password must same!");
         }
 
 
