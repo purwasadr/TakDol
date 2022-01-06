@@ -12,9 +12,9 @@
                 </li>
             </ul>
             <div class="col-lg-5 mx-auto">
-                <div class="input-group">
+                <div class="input-group input-group-sm">
                     <input type="text" class="form-control" placeholder="Search..." name="search">
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
                 </div>
             </div>
             <ul class="navbar-nav mb-2 ms-auto mb-lg-0">
@@ -36,6 +36,9 @@
                                     class="bi bi-layout-text-sidebar-reverse"></i>
                                 My Account</a></li>
                         <li>
+                        <li><a class="dropdown-item" href="/purchase"><i class="bi bi-layout-text-sidebar-reverse"></i>
+                                Purchase</a></li>
+                        <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
@@ -51,10 +54,10 @@
             @else
             <ul class="navbar-nav">
                 <li class="nav-item mt-2 mt-lg-0 lg">
-                    <a class="btn btn-primary ms-lg-3" aria-current="page" href="/login">Login</a>
+                    <a class="btn btn-primary btn-sm ms-lg-3" aria-current="page" href="/login">Login</a>
                 </li>
                 <li class="nav-item mt-2 mt-lg-0">
-                    <a class="btn btn-primary ms-lg-2" aria-current="page" href="/register">SignUp</a>
+                    <a class="btn btn-outline-primary btn-sm ms-lg-2" aria-current="page" href="/register">SignUp</a>
                 </li>
             </ul>
             @endauth
