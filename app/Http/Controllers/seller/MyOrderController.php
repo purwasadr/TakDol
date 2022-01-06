@@ -18,4 +18,14 @@ class MyOrderController extends Controller
             'orders' => Auth::user()->orders
         ]);
     }
+
+    public function editStatus(Request $request)
+    {
+
+        Order::where('id', $request->order_id)->update([
+            'order_status_id' => $request->status
+        ]);
+
+        return back();
+    }
 }
