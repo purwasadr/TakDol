@@ -17,6 +17,17 @@
     <link rel="stylesheet" href="/css/seller.css">
 
     <title>{{ $title }}</title>
+
+    <style>
+        @font-face {
+            font-family: 'Inter Medium';
+            src: url('{{ public_path('font/Inter-Medium.ttf') }}');
+        }
+
+        body {
+            font-family: 'Inter Medium', Ubuntu, Geneva, Verdana, sans-serif
+        }
+    </style>
 </head>
 
 <body style="height: 2500rem">
