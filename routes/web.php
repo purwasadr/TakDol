@@ -65,10 +65,11 @@ Route::put('/myaccount/profile', [ProfileController::class, 'update'])->middlewa
 Route::get('/myaccount/change-password', [ChangePasswordController::class, 'index'])->middleware('auth');
 Route::put('/myaccount/change-password', [ChangePasswordController::class, 'update'])->middleware('auth');
 
-Route::get('/cart', [CartController::class, 'index'])->middleware('auth');;
-Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth');;
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
+Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
-Route::get('/seller/myorders', [MyOrderController::class, 'index'])->middleware('auth');;
+Route::get('/seller/myorders', [MyOrderController::class, 'index'])->middleware('auth');
+Route::post('/seller/myorders/edit-status', [MyOrderController::class, 'editStatus'])->middleware('auth');
 
 Route::get('/shop-details', [ShopDetailController::class, 'index']);
 
