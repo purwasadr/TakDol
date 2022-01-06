@@ -19,7 +19,7 @@
         @endif
 
         <main class="form-signin">
-            <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+            <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
             <form action="/login" method="post">
                 @csrf
                 <div class="form-floating">
@@ -32,13 +32,21 @@
                     </div>
                     @enderror
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-2">
                     <input type="password" class="form-control" name="password" id="password" placeholder="Password"
                         required>
                     <label for="password">Password</label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" name="remember_me" type="checkbox" value="true" id="remember_me"
+                        @if(old('remember_me')) checked @endif>
+                    <label class="form-check-label" for="remember_me">
+                        Remember me
+                    </label>
+                </div>
                 <button class="w-100 btn btn-lg mt-3 btn-primary" type="submit">Login</button>
-                <small class="d-block text-center mt-3">Not Registered? <a href="/register">Register Now!</a></small>
+                <small class="d-block text-center mt-3">Not Registered? <a class="text-decoration-none"
+                        href="/register">Register</a></small>
             </form>
         </main>
     </div>
