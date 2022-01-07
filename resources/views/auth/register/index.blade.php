@@ -9,7 +9,7 @@
             <form action="/register" method="post">
                 @csrf
                 <div class="form-floating">
-                    <input type="text" class="form-control rounded-top  @error('name') is-invalid @enderror" name="name"
+                    <input type="text" class="form-control rounded-top @error('name') is-invalid @enderror" name="name"
                         id="name" placeholder="Name" required value="{{ old('name') }}">
                     <label for="name">Name</label>
                     @error('name')
@@ -41,7 +41,8 @@
                     @enderror
                 </div>
                 <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
-                <small class="d-block text-center mt-3">Already Registered? <a href="/login">Login Now!</a></small>
+                <small class="d-block text-center mt-3">Already Registered? <a href="/login"
+                        class="text-decoration-none">Login</a></small>
             </form>
         </main>
     </div>
