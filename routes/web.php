@@ -65,6 +65,7 @@ Route::put('/myaccount/profile', [ProfileController::class, 'update'])->middlewa
 Route::get('/myaccount/change-password', [ChangePasswordController::class, 'index'])->middleware('auth');
 Route::put('/myaccount/change-password', [ChangePasswordController::class, 'update'])->middleware('auth');
 
+Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->middleware('auth');
 Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
 Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth');
 
