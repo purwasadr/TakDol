@@ -54,10 +54,12 @@
             @else
             <ul class="navbar-nav">
                 <li class="nav-item mt-2 mt-lg-0 lg">
-                    <a class="btn btn-primary btn-sm ms-lg-3" aria-current="page" href="/login">Login</a>
+                    <a class="btn btn-primary btn-sm ms-lg-3" aria-current="page"
+                        href="{{ route('login.form') }}">Login</a>
                 </li>
                 <li class="nav-item mt-2 mt-lg-0">
-                    <a class="btn btn-outline-primary btn-sm ms-lg-2" aria-current="page" href="/register">SignUp</a>
+                    <a class="btn btn-outline-primary btn-sm ms-lg-2" aria-current="page"
+                        href="{{ route('register.form') }}">SignUp</a>
                 </li>
             </ul>
             @endauth
