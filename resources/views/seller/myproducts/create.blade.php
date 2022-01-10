@@ -46,7 +46,6 @@
                 @else
                 <option value={{ $category->id }}>{{ $category->name }}</option>
                 @endif
-
                 @endforeach
             </select>
         </div>
@@ -64,12 +63,12 @@
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <textarea id="description" name="description" class="form-control" aria-label="With textarea"
-                rows="4"></textarea>
-            @error('body')
+                rows="10">{{ old('title') }}</textarea>
+            @error('description')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
+        <button type="submit" class="btn btn-primary">Create Product</button>
     </form>
 </div>
 <script src="/js/seller.js"></script>
