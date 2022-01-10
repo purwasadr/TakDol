@@ -35,4 +35,11 @@ class CartController extends Controller
 
         return redirect('/cart');
     }
+
+    public function destroy(Cart $cart)
+    {
+        Cart::destroy($cart->id);
+
+        return redirect('/cart')->with('success', "Product has been deleted!");
+    }
 }
