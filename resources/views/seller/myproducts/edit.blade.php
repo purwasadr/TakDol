@@ -5,7 +5,7 @@
     <h1 class="h2">Edit Product</h1>
 </div>
 <div class="col-lg-8">
-    <form method="post" action="/seller/myproducts" class="mb-5" enctype="multipart/form-data">
+    <form method="post" action="/seller/myproducts/{{ $product->slug }}" class="mb-5" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">
@@ -21,7 +21,7 @@
         <div class="mb-3">
             <label for="slug" class="form-label">Slug</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="slug" name="slug" required
-                autofocus value="{{ old('slug', $product->slug) }}">
+                value="{{ old('slug', $product->slug) }}">
             @error('slug')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -30,8 +30,12 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" class="form-control @error('title') is-invalid @enderror" id="price" name="price"
-                required autofocus value="{{ old('price', $product->price) }}">
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">Rp</span>
+                <input type="number" class="form-control @error('title') is-invalid @enderror" id="price" name="price"
+                    required value="{{ old('price', $product->price) }}">
+            </div>
+
             @error('price')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -47,7 +51,6 @@
                 @else
                 <option value={{ $category->id }}>{{ $category->name }}</option>
                 @endif
-
                 @endforeach
             </select>
         </div>
@@ -69,13 +72,13 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea id="description" name="description" value="{{ old('description', $product->description) }}"
-                class="form-control" aria-label="With textarea" rows="4"></textarea>
+            <textarea id="description" name="description" class="form-control" aria-label="With textarea"
+                rows="10">{{ old('description', $product->description) }}</textarea>
             @error('body')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
+        <button type="submit" class="btn btn-primary">Edit Product</button>
     </form>
 </div>
 <script src="/js/seller.js"></script>
