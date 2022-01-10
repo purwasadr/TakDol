@@ -11,6 +11,11 @@ class HomeController extends Controller
 {
     public function addToCart(Product $product)
     {
+
+        if (Cart::where('product_id', $product->id)->exists()) {
+            return back()->with('error', 'You add same product');
+        }
+
         Cart::create([
             'user_id' => Auth::user()->id,
             'product_id' => $product->id
