@@ -1,12 +1,8 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/seller">TakDol <small class="text-muted">Seller</small></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+        <a class="navbar-brand d-none d-lg-flex" href="/seller">TakDol <small class="text-muted">Seller</small></a>
+        <div class="d-flex" id="navbarSupportedContent">
+            <ul class="navbar-nav d-lg-none">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/seller/myproducts">Home</a>
                 </li>
@@ -44,6 +40,11 @@
                 </li>
             </ul>
             @endauth
+
         </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 </nav>
