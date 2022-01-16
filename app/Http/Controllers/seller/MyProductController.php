@@ -51,6 +51,7 @@ class MyProductController extends Controller
             'slug' => 'required|unique:products',
             'category_id' => 'required',
             'price' => 'required',
+            'stock' => 'required',
             'image' => 'image|file|max:1024',
             'description' => 'required'
         ]);
@@ -109,6 +110,7 @@ class MyProductController extends Controller
             'title' => 'required|max:255',
             'category_id' => 'required',
             'price' => 'required',
+            'stock' => 'required',
             'image' => 'image|file|max:1024',
             'description' => 'required'
         ];
