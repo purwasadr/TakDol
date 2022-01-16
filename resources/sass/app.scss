@@ -1,0 +1,68 @@
+$primary: #7000d9;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+.form-signin {
+    .form-floating:focus-within {
+        z-index: 2;
+    }
+
+    input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+.form-registration {
+    input {
+        border-radius: 0;
+        margin-bottom: -1px;
+    }
+
+    .form-floating:focus-within {
+        z-index: 2;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 60px 0 0;
+    /* box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1); */
+    /* z-index: 99; */
+}
+
+.item-hover:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* #div-img-product {
+    background-image: url('/svg/person-circle.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+
+.bg-plus-icon {
+    background-image: url('/svg/plus-circle.svg');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+}
+
+#plus-icon {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
