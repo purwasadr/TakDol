@@ -1,6 +1,14 @@
 @extends('layouts.main')
 
 @section('container')
+
+@if (session()->has('error'))
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+    {{ session('error') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
 <div class="row mb-5">
     <div class="col-md-4">
         <div class="ratio ratio-1x1">
@@ -35,4 +43,5 @@
 </div>
 <h5>Description</h5>
 <p style="white-space: pre-line">{{ $product->description }}</p>
+
 @endsection
