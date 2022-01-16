@@ -13,11 +13,14 @@
         @csrf
         <div class="mb-3 d-flex flex-column align-items-center">
             <input type="hidden" name="oldImage" value="{{ $user->profile_img }}">
-            @if ($user->profile_img)
-            <img src="{{ asset('storage/' . $user->profile_img) }}" class="img-preview col-4 img-fluid mb-3 d-block">
-            @else
-            <img class="img-preview img-fluid mb-3" src="/svg/person-circle.svg" width="100">
-            @endif
+            <div class="col-6 col-md-3 mb-3">
+                <div class="ratio ratio-1x1">
+                    <img class="img-preview img-fluid" style="object-fit: contain;" @if($user->profile_img) src="{{
+                    asset('storage/' . $user->profile_img) }}" @else
+                    src="/svg/person-circle.svg" @endif >
+                </div>
+            </div>
+
             <label for="image" class="btn btn-primary d-block" style="width: fit-content">
                 <input type="file" class="@error('profile_img') is-invalid @enderror" id="image" name="profile_img"
                     value="{{ old('profile_img') }}" onchange="previewImage()" hidden>Choose
@@ -49,7 +52,19 @@
             </div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary" name="save" value="save">Save</button>
+        <div class="mb-3">
+            <label for="store_name" class="form-label">Store Name</label>
+            <input type="text" class="form-control @error('store_name') is-invalid @enderror" id="store_name"
+                name="store_name" required value="{{ old('store_name', $user->store_name) }}">
+            @error('store_name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="d-flex">
+            <button type="submit" class="btn btn-primary ms-auto">Save</button>
+        </div>
     </form>
 </div>
 <script src="/js/seller.js"></script>
