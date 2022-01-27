@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="row mt-3 mb-4">
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="ratio ratio-1x1">
             <img src="{{ asset('storage/' . $product->image) }}" class="rounded" style="object-fit: cover;"
                 alt="{{ $product->image }}">
