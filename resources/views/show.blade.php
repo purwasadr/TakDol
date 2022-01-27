@@ -16,11 +16,19 @@
                 alt="{{ $product->image }}">
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 mt-2 mt-md-0">
         <h4>{{ $product->title }}</h4>
-        <h3 class="mt-2">Rp. {{ number_format($product->price, 0, ",", ".") }}</h3>
-
-        <div class="mt-2 d-inline-block mb-2">
+        <h3 class="mt-2 mb-4">Rp. {{ number_format($product->price, 0, ",", ".") }}</h3>
+        <div class="d-flex align-items-center mb-4">
+            <div class="input-group input-group-sm" style="width: 150px">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
+                <input type="number" class="form-control text-center" value="1" placeholder=""
+                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
+            </div>
+            <small class="ms-3 text-muted">Tersisa {{ $product->stock }}</small>
+        </div>
+        <div class="d-inline-block mb-2">
             <form action="/show/{{ $product->slug }}/checkout" method="POST" class="d-inline">
                 @csrf
                 <button type="submit" class="btn btn-outline-primary mt-2">Add to cart</button>
