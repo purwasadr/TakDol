@@ -1,8 +1,8 @@
 @extends('seller.layouts.main')
 
 @section('container')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3">
-    <h3>My Products</h3>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-2">
+    <h4>My Products</h4>
 </div>
 
 @if (session()->has('success'))
@@ -11,7 +11,10 @@
 </div>
 @endif
 
-<a href="/seller/myproducts/create" class="btn btn-primary mb-3">Add Product</a>
+<div class="d-flex">
+    <a href="/seller/myproducts/create" class="btn btn-primary mb-3 ms-auto">Add Product</a>
+</div>
+
 
 <div class="list-group">
     <div class="list-group-item bg-light">
@@ -19,31 +22,31 @@
             <div class="col-6">
                 <h6 class="mb-0">Title</h6>
             </div>
-            <div class="col-2">
+            <div class="col-2 d-none d-md-block">
                 <h6 class="mb-0">Stock</h6>
             </div>
-            <div class="col-2 d-none d-sm-block">
+            <div class="col-2 d-none d-md-block">
                 <h6 class="mb-0">Price</h6>
             </div>
-            <div class="col-2">
+            {{-- <div class="col-2">
                 <h6 class="mb-0"></h6>
-            </div>
+            </div> --}}
         </div>
     </div>
     @foreach ($products as $product)
     <div class="list-group-item list-group-item-action">
         <div class="row align-items-center">
             <a class="position-absolute h-100 w-100" href="/seller/myproducts/{{ $product->slug }}"></a>
-            <div class="col-6">
+            <div class="col col-md-6 text-truncate">
                 {{ $product->title }}
             </div>
-            <div class="col-2 d-none d-sm-block">
-                2 (Fake)
+            <div class="col-2 d-none d-md-block">
+                {{ $product->stock }}
             </div>
-            <div class="col-2 d-none d-sm-block">
+            <div class="col-2 d-none d-md-block">
                 Rp. {{ number_format($product->price, 0, ",", ".") }}
             </div>
-            <div class="col-2 d-flex pe-0">
+            <div class="ms-auto col-auto d-flex px-0">
                 <div class="dropdown ms-auto">
                     <button class="btn bi bi-three-dots-vertical" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false">
