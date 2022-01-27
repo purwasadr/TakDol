@@ -18,8 +18,8 @@
 
 @foreach ($orders as $order)
 <div class="title d-inline">
-    <small>12 Jul 2021 (Fake)</small>
-    <small class="bg-success rounded-pill px-2 py-1 text-light">{{ $order->status->name }}</small>
+    <small>{{ $order->created_at->format('d M Y') }}</small>
+    <small class="bg-success rounded-pill px-2 py-1 text-light text-small">{{ $order->status->name }}</small>
 </div>
 <div class="row mb-2 justify-content-between">
     <div class="col-3">
