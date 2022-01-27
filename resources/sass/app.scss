@@ -1,7 +1,10 @@
-$primary: #7000d9;
+$primary: #9c27b0;
+$font-family-sans-serif: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-weight-normal: 500;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
-
 
 .form-signin {
     .form-floating:focus-within {
@@ -40,7 +43,6 @@ $primary: #7000d9;
     z-index: 100;
     padding: 60px 0 0;
     /* box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1); */
-    /* z-index: 99; */
 }
 
 .item-hover:hover {
@@ -53,9 +55,8 @@ $primary: #7000d9;
     background-size: cover;
 } */
 
-
 .bg-plus-icon {
-    background-image: url('/svg/plus-circle.svg');
+    background-image: url("/svg/plus-circle.svg");
     background-repeat: no-repeat;
     background-size: 24px;
     background-position: center;
