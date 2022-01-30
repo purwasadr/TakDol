@@ -12,9 +12,30 @@ class CartController extends Controller
 {
     public function index(Product $product)
     {
+
+        // $carts = Cart::with(['product' => function ($query) {
+        //     $query->orderBy('user_id', 'asc');
+        // }])->where('user_id', Auth::user()->id)->get();
+        // $carts = Cart::with(['product'])->where('user_id', Auth::user()->id)->get()->sortBy(function ($cart, $key) {
+        //     return $cart->product->user_id;
+        // });
+        // $carts = Cart::where('user_id', Auth::user()->id)->orderBy(Product::select('id')->whereColumn('products.id', 'carts.product_id'))->get();
+
+        $carts = Cart::where('carts.user_id', Auth::user()->id)
+            ->select('carts.*')
+            ->join('products', 'products.id', '=', 'carts.product_id')
+            ->orderBy('products.user_id')
+            ->with(['product', 'product.user'])
+            ->get()
+            ->chunkWhile(function ($value, $key, $chunk) {
+                return $value->product->user_id == $chunk->last()->product->user_id;
+            });
+
+        // dd($carts);
+
         return view('cart.index', [
             'title' => 'Cart',
-            'carts' => Cart::where('user_id', Auth::user()->id)->get()
+            'carts' => $carts
         ]);
     }
 
