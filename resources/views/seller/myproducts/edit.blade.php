@@ -43,6 +43,16 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="stock" class="form-label">Stock</label>
+            <input type="number" class="form-control @error('title') is-invalid @enderror" id="stock" name="stock"
+                required value="{{ old('stock', $product->stock) }}">
+            @error('stock')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="mb-3">
             <label for="category" class="form-label">Category</label>
             <select class="form-select" name="category_id">
                 @foreach ($categories as $category)
