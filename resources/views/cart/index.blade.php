@@ -17,9 +17,17 @@
         </div>
     </div>
 
-    @if ($carts->count())
-    @foreach ($carts as $cart)
 
+    @forelse ($carts as $cart_chunk)
+    <div class="list-group-item list-group-item-action">
+        <div class="row align-items-center">
+            <div class="col-4">
+                {{ $cart_chunk[$loop->index]->product->user->store_name }}
+            </div>
+        </div>
+    </div>
+
+    @foreach ($cart_chunk as $cart)
     <div class="list-group-item list-group-item-action">
         <div class="row align-items-center">
             <div class="col-1">
@@ -39,13 +47,14 @@
             </div>
         </div>
     </div>
-
     @endforeach
-    @else
+
+    @empty
     <div class="list-group-item d-flex" style="height: 50vh">
         <p class="mx-auto my-auto">Empty</p>
     </div>
-    @endif
+    @endforelse
+
 </div>
 
 <div class="d-flex">
