@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">TakDol</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -25,10 +25,10 @@
             @auth
             <div class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <div class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="storage/profile-img/d54KNP2K5LUWQqtTLhhY5cndh5ygd1DX42HW7EJ9.jpg" width="24px"
-                            class="rounded-circle" alt="">
+                    <div class="nav-link dropdown-toggle d-flex align-items-center" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ asset('storage/' . auth()->user()->profile_img) }}" width="24px" height="24px"
+                            class="rounded-circle" style="object-fit: cover;" alt="">
                         <p class="ms-1 mb-0 me-1">{{ auth()->user()->name }}</p>
                     </div>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
