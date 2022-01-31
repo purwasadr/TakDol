@@ -8,21 +8,21 @@ class Text extends Component
 {
 
     public $name;
-
     public $label;
-
-    public $errorMsg;
+    public $id;
+    public $autofocus;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $label, $errorMsg)
+    public function __construct($name, $label, $id = null, $autofocus = false)
     {
         $this->name = $name;
         $this->label = $label;
-        $this->errorMsg = $errorMsg;
+        $this->id = $id;
+        $this->autofocus = $autofocus;
     }
 
     /**
