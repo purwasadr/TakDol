@@ -7,26 +7,8 @@
 <div class="col-lg-8">
     <form method="post" action="/seller/myproducts" class="mb-5" enctype="multipart/form-data">
         @csrf
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                autofocus value="{{ old('title') }}">
-            @error('title')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="slug" class="form-label">Slug</label>
-            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required
-                value="{{ old('slug') }}">
-            @error('slug')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-            @enderror
-        </div>
+        <x-inputs.text class="mb-3" name="title" id="title" label="Title" :autofocus="true"> </x-inputs.text>
+        <x-inputs.text class="mb-3" name="slug" id="slug" label="Slug"> </x-inputs.text>
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
             <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
