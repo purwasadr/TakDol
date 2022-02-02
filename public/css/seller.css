@@ -12,3 +12,23 @@
 .item-hover:hover {
     background-color: rgba(0, 0, 0, 0.075);
 }
+
+/* #div-img-product {
+    background-image: url('/svg/person-circle.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+
+.bg-plus-icon {
+    background-image: url('/svg/plus-circle.svg');
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+}
+
+#plus-icon {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
