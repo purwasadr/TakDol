@@ -9,16 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function addToCart(Product $product)
+    public function addToCart(Request $request, Product $product)
     {
 
-        if (Cart::where('product_id', $product->id)->exists()) {
+        if (Cart::where('product_id', $product->id)->where('user_id', Auth::user()->id)->exists()) {
             return back()->with('error', 'You add same product');
         }
 
         Cart::create([
             'user_id' => Auth::user()->id,
-            'product_id' => $product->id
+            'product_id' => $product->id,
+            'count' => $request->count
         ]);
 
         return redirect('/show/' . $product->slug);
