@@ -22,15 +22,17 @@
         <div class="d-flex align-items-center mb-4">
             <div class="input-group input-group-sm" style="width: 150px">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                <input type="number" class="form-control text-center" value="1" placeholder=""
+                <input type="number" class="form-control text-center" value="1" name="count" form="takdol-form-checkout"
                     aria-label="Example text with button addon" aria-describedby="button-addon1">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
             </div>
             <small class="ms-3 text-muted">Tersisa {{ $product->stock }}</small>
         </div>
         <div class="d-inline-block mb-2">
-            <form action="/show/{{ $product->slug }}/checkout" method="POST" class="d-inline">
+            <form id="takdol-form-checkout" action="/show/{{ $product->slug }}/checkout" method="POST" class="d-inline">
                 @csrf
+                <input type="number" class="form-control text-center" value="1"
+                    aria-label="Example text with button addon" aria-describedby="button-addon1" hidden>
                 <button type="submit" class="btn btn-outline-primary mt-2">Add to cart</button>
             </form>
             {{-- <a class="btn btn-outline-primary mt-2" href="/cart">Tambahkan ke keranjang</a> --}}
