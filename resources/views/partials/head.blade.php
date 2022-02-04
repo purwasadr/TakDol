@@ -10,5 +10,6 @@
 {{-- App Style --}}
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+@livewireStyles
 
 <title>{{ $title }}</title>
