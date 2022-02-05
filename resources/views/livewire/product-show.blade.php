@@ -1,52 +1,73 @@
 <div>
     @if (session()->has('error'))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        {{ session('error') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+        <div class="alert alert-info alert-dismissible fade show"
+            role="alert">
+            {{ session('error') }}
+            <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"></button>
+        </div>
     @endif
 
     <div class="row mb-5">
         <div class="col-md-4">
             <div class="ratio ratio-1x1">
-                <img src="{{ asset('storage/' . $product->image) }}" class="card-img-top" style="object-fit: cover;"
+                <img src="{{ asset('storage/' . $product->image) }}"
+                    class="card-img-top"
+                    style="object-fit: cover;"
                     alt="{{ $product->image }}">
             </div>
         </div>
-        <div class="col-md-8 mt-2 mt-md-0">
+        <div x-data="{count: 1}"
+            class="col-md-8 mt-2 mt-md-0">
             <h4>{{ $product->title }}</h4>
-            <h3 class="mt-2 mb-4">Rp. {{ number_format($product->price, 0, ",", ".") }}</h3>
+            <h3 class="mt-2 mb-4">Rp. {{ number_format($product->price, 0, ',', '.') }}</h3>
             <div class="d-flex align-items-center mb-4">
-                <div class="input-group input-group-sm" x-data="{count: 1}" style="width: 150px">
-                    <button class="btn btn-outline-secondary" type="button" @click="if(count > 1) {count--}">-</button>
-                    <input type="number" class="form-control text-center" x-model="count" name="count"
-                        form="takdol-form-checkout" aria-label="" aria-describedby="button-addon1">
-                    <button class="btn btn-outline-secondary" type="button"
-                        @click="if(count < {{ $product->stock }}) {count++}">+</button>
+                <div class="input-group input-group-sm"
+                    style="width: 150px">
+                    <button class="btn btn-outline-secondary"
+                        type="button"
+                        @click="if(count > 1) {count--}">-</button>
+                    <input type="number"
+                        class="form-control text-center"
+                        x-model="count"
+                        name="count"
+                        form="takdol-form-buy-now"
+                        aria-label=""
+                        min="1"
+                        max="{{ $product->stock }}"
+                        aria-describedby="">
+                    <button class="btn btn-outline-secondary"
+                        type="button"
+                        @click="if(count < @js($product->stock)) count++">+</button>
                 </div>
                 <small class="ms-3 text-muted">Tersisa {{ $product->stock }}</small>
             </div>
             <div class="d-inline-block mb-2">
-                <form id="takdol-form-checkout" action="/show/{{ $product->slug }}/checkout" method="POST"
+                <button class="btn btn-outline-primary mt-2"
+                    type="button"
+                    x-on:click="$wire.addToCart(@js($product->id), count)">Add
+                    to cart</button>
+                <form action="/show/{{ $product->slug }}/buy-now"
+                    id="takdol-form-buy-now"
+                    method="POST"
                     class="d-inline">
                     @csrf
-                    <input type="number" class="form-control text-center" value="1"
-                        aria-label="Example text with button addon" aria-describedby="button-addon1" hidden>
-                    <button type="submit" class="btn btn-outline-primary mt-2">Add to cart</button>
-                </form>
-                {{-- <a class="btn btn-outline-primary mt-2" href="/cart">Tambahkan ke keranjang</a> --}}
-                <form action="/show/{{ $product->slug }}/buy-now" method="POST" class="d-inline">
-                    @csrf
-                    <button type="submit" class="btn btn-primary mt-2">Buy now</button>
+                    <button type="submit"
+                        class="btn btn-primary mt-2">Buy now</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="d-flex mb-5">
-        <img class="rounded-circle" src="{{ asset('storage/' . $product->user->profile_img) }}" height="78px"
+        <img class="rounded-circle"
+            src="{{ asset('storage/' . $product->user->profile_img) }}"
+            height="78px"
             width="78px">
         <div class="ms-4 d-block">
-            <a href="" class="text-decoration-none text-body">
+            <a href=""
+                class="text-decoration-none text-body">
                 <h5 class="">{{ $product->user->store_name }}</h5>
             </a>
         </div>
