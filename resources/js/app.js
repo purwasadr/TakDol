@@ -1,22 +1,30 @@
 //require('./bootstrap');
 
-require('bootstrap');
+require("bootstrap");
+import Alpine from "alpinejs";
 
-const title = document.querySelector('#title');
-const slug = document.querySelector('#slug');
+window.Alpine = Alpine;
+Alpine.start();
 
-title.addEventListener('change', function () {
-    fetch('/seller/myproducts/checkSlug?title=' + title.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
+Livewire.on("postAdded", () => {
+    alert("A post was added with the id of: ");
+});
+
+const title = document.querySelector("#title");
+const slug = document.querySelector("#slug");
+
+title.addEventListener("change", function () {
+    fetch("/seller/myproducts/checkSlug?title=" + title.value)
+        .then((response) => response.json())
+        .then((data) => (slug.value = data.slug));
 });
 
 function previewImage() {
-    const image = document.querySelector('#image');
-    const imgPreview = document.querySelector('.img-preview');
-    const divImgProduct = document.querySelector('#div-img-product');
+    const image = document.querySelector("#image");
+    const imgPreview = document.querySelector(".img-preview");
+    const divImgProduct = document.querySelector("#div-img-product");
 
-    imgPreview.style.display = 'block';
+    imgPreview.style.display = "block";
 
     const oFReader = new FileReader();
 
@@ -24,16 +32,16 @@ function previewImage() {
     oFReader.onload = function (oFREvent) {
         imgPreview.src = oFREvent.target.result;
         if (imgPreview.src != "") {
-            divImgProduct.classList.remove('bg-plus-icon');
+            divImgProduct.classList.remove("bg-plus-icon");
         }
-    }
+    };
 
     console.log(inputImage.value);
 }
 
-const inputImage = document.querySelector('#image');
-const divImgProduct = document.querySelector('#div-img-product');
-const imgPreview = document.querySelector('.img-preview');
+const inputImage = document.querySelector("#image");
+const divImgProduct = document.querySelector("#div-img-product");
+const imgPreview = document.querySelector(".img-preview");
 
 // inputImage.addEventListener('change', function(e) {
 //   if (e.target.value != '' && e.target.value != null) {
