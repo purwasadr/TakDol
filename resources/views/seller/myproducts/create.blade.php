@@ -7,8 +7,10 @@
 <div class="col-lg-8">
     <form method="post" action="/seller/myproducts" class="mb-5" enctype="multipart/form-data">
         @csrf
-        <x-inputs.text class="mb-3" name="title" id="title" label="Title" :autofocus="true"> </x-inputs.text>
-        <x-inputs.text class="mb-3" name="slug" id="slug" label="Slug"> </x-inputs.text>
+        <x-forms.inputs.input class="mb-3" type="text" name="title" id="title" label="Title" :autofocus="true"
+            :required="true" />
+
+        <x-forms.inputs.input class="mb-3" type="text" name="slug" id="slug" label="Slug" :required="true" />
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
             <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
