@@ -71,17 +71,6 @@ $btn-focus-width: 0;
     }
 }
 
-.form-registration {
-    input {
-        border-radius: 0;
-        margin-bottom: -1px;
-    }
-
-    .form-floating:focus-within {
-        z-index: 2;
-    }
-}
-
 .sidebar {
     position: fixed;
     top: 0;
