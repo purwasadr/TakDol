@@ -26,7 +26,6 @@ class CartIndex extends Component
             return $item->values();
         })->toArray();
 
-        // dd($this->carts_chunk);
         return $carts;
     }
 
@@ -38,28 +37,36 @@ class CartIndex extends Component
     public function changeCartCount($id, $value, $maxCount)
     {
         if ($value > $maxCount) {
+            Cart::where('id', $id)->update(['count' => $maxCount]);
+            return;
+        } else if ($value < 1) {
+            Cart::where('id', $id)->update(['count' => 1]);
             return;
         }
 
-        // $this->emit('postAdded');
-
         Cart::where('id', $id)->update(['count' => $value]);
-    }
-
-    public function cobaChange()
-    {
-        dd('www');
     }
 
     public function increaseCartCount($id, $maxCount)
     {
         $cart = Cart::find($id);
         if ($cart->count >= $maxCount) {
-            dd('max');
+            $this->emit('toast', 'Count is max');
             return;
         }
 
         Cart::where('id', $id)->increment('count');
+    }
+
+    public function decreaseCartCount($id, $maxCount)
+    {
+        $cart = Cart::find($id);
+        if ($cart->count < 2) {
+            dd('max');
+            return;
+        }
+
+        Cart::where('id', $id)->decrement('count');
     }
 
     public function render()
