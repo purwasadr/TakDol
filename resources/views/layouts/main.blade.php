@@ -14,6 +14,7 @@
 
     {{-- @include('partials.footer') --}}
 
+    @include('partials.toast')
     @include('partials.script')
 </body>
 
