@@ -11,7 +11,7 @@
     @endif
 
     <div class="row mb-5">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-2 mb-md-0">
             <div class="ratio ratio-1x1">
                 <img src="{{ asset('storage/' . $product->image) }}"
                     class="card-img-top"
@@ -19,7 +19,7 @@
                     alt="{{ $product->image }}">
             </div>
         </div>
-        <div x-data="{count: 1}"
+        <div x-data="inputCounter(@js($product->stock))"
             class="col-md-8 mt-2 mt-md-0">
             <h4>{{ $product->title }}</h4>
             <h3 class="mt-2 mb-4">Rp. {{ number_format($product->price, 0, ',', '.') }}</h3>
@@ -28,10 +28,11 @@
                     style="width: 150px">
                     <button class="btn btn-outline-secondary"
                         type="button"
-                        @click="if(count > 1) {count--}">-</button>
+                        @click="decrease">-</button>
                     <input type="number"
                         class="form-control text-center"
                         x-model="count"
+                        x-on:change='validateCounter'
                         name="count"
                         form="takdol-form-buy-now"
                         aria-label=""
@@ -40,7 +41,7 @@
                         aria-describedby="">
                     <button class="btn btn-outline-secondary"
                         type="button"
-                        @click="if(count < @js($product->stock)) count++">+</button>
+                        @click="increase">+</button>
                 </div>
                 <small class="ms-3 text-muted">Tersisa {{ $product->stock }}</small>
             </div>
