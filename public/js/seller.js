@@ -10,6 +10,7 @@ title.addEventListener('change', function() {
 function previewImage() {
   const image = document.querySelector('#image');
   const imgPreview = document.querySelector('.img-preview');
+  const divImgProduct = document.querySelector('#div-img-product');
 
   imgPreview.style.display = 'block';
 
@@ -18,5 +19,22 @@ function previewImage() {
   oFReader.readAsDataURL(image.files[0]);
   oFReader.onload = function (oFREvent) {
     imgPreview.src = oFREvent.target.result;
+    if (imgPreview.src != "") {
+      divImgProduct.classList.remove('bg-plus-icon');
+    }
   }
+
+  console.log(inputImage.value);
 }
+
+const inputImage = document.querySelector('#image');
+const divImgProduct = document.querySelector('#div-img-product');
+const imgPreview = document.querySelector('.img-preview');
+
+// inputImage.addEventListener('change', function(e) {
+//   if (e.target.value != '' && e.target.value != null) {
+//     divImgProduct.classList.remove('bg-plus-icon');
+//   } else {
+//     divImgProduct.classList.add('bg-plus-icon');
+//   }
+// });
