@@ -15,7 +15,8 @@
                         <p class="ms-1 mb-0 me-1 d-none d-lg-block">{{ auth()->user()->name }}</p>
                     </div>
                     <ul class="dropdown-menu dropdown-menu-end position-absolute" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i>
+                        <li><a class="dropdown-item" href="/dashboard"><i
+                                    class="bi bi-layout-text-sidebar-reverse"></i>
                                 Profile</a></li>
                         <li>
                             <hr class="dropdown-divider">
