@@ -6,8 +6,7 @@
 </head>
 
 <body>
-
-    <div class="container mt-5 mb-5">
+    <div class="container">
         @yield('container')
     </div>
 
