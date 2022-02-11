@@ -1,13 +1,40 @@
 //require('./bootstrap');
 
-require("bootstrap");
+// require("bootstrap");
 import Alpine from "alpinejs";
+const bootstrap = require("bootstrap");
+
+Alpine.data("inputCounter", (maxCount = 1) => ({
+    count: 1,
+    init() {},
+
+    validateCounter() {
+        if (this.count > maxCount) {
+            this.count = maxCount;
+        } else if (this.count < 1) {
+            this.count = 1;
+        }
+    },
+    increase() {
+        if (this.count < maxCount) this.count++;
+    },
+    decrease() {
+        if (this.count > 1) this.count--;
+    },
+}));
 
 window.Alpine = Alpine;
+
 Alpine.start();
 
-Livewire.on("postAdded", () => {
-    alert("A post was added with the id of: ");
+const toastEl = document.getElementById("toast");
+
+const toast1 = new bootstrap.Toast(toastEl);
+
+Livewire.on("toast", (a) => {
+    console.log(a);
+    toastEl.getElementsByClassName("toast-body")[0].textContent = a;
+    toast1.show();
 });
 
 const title = document.querySelector("#title");
